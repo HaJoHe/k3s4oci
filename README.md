@@ -7,5 +7,6 @@ Well, the 2 VMs offered as always free are not high perfomance VMs, but it's eno
 
 Description how to setup a cluster including a glusterfs for locsl storage
 
-* Disable Scheduling on Master node
+* ### Disable Scheduling on Master node
+it's probably a good idea for not overcharging the Master VM, to disable workload on this node. I personally found, that playing arround with some uncorrect yaml ;-), ... k3s is running in high load very easyly, and ends with refusing to accept commands. Solution: systemctl restart k3s... or 
  <br/>kubectl taint nodes master-node node-role.kubernetes.io/master=effect:NoSchedule
